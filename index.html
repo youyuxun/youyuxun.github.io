@@ -244,6 +244,147 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/17/BFC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/17/BFC/" itemprop="url">BFC</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-17T15:51:11+08:00">
+                2017-09-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>BFC，块格式化上下文文（block formatting context），在面试中经常会碰到这个问题。在这里总结归纳下。</p>
+<p>###定义<br>BFC是在页面渲染时，块级盒布局出现的区域，同时也是浮动元素交互的区域。这样讲其实很晦涩，不妨这样理解：<br>在一个文档中，如果所有元素都处于文档流中，那他们都属于同一个BFC，可以说它是环境或者属性。但是不代表一个文档里只有一个BFC。</p>
+<p>###激活BFC的条件<br>激活BFC的条件有很多，总结如下：</p>
+<ol>
+<li><code>float</code>属性为<code>left</code>或<code>right</code>；</li>
+<li><code>position</code>属性为<code>absolute</code>或<code>fixed</code>;</li>
+<li>块容器但不是块级盒模型的元素，简单来说就是<code>display</code>属性为<code>inline-block</code>、<code>table-cell</code>、<code>table-caption</code>、<code>flex</code>或<code>inline-flex</code>；</li>
+<li><code>overflow</code>属性为<code>auto</code>、<code>scroll</code>或<code>hidden</code></li>
+</ol>
+<p>###BFC的作用<br>在BFC的布局中，box会紧贴着BFC的左边缘，自上向下排列，即使存在浮动元素，这样就会出现浮动元素覆盖在box上的情况。<br>利用BFC，我们可以解决很多问题：</p>
+<ol>
+<li>同属于一个BFC时，box垂直方向的距离会由各自的margin值决定，也就是会发生合并情况。解决方法就是将box置于不同的BFC中，这样margin值会分开计算，不会合并</li>
+<li>在BFC中若有浮动元素，就会出现类似文字环绕的情况。这时只要为被覆盖的元素设置一个新的BFC即可解决问题</li>
+<li><p>高度的塌陷。在一个BFC中，若都为浮动元素，则父元素的高度会塌陷，这时我们就需要为父元素设置BFC，就是常说的清除浮动。关于清除浮动的最佳实践如下：</p>
+<p> .clearfix:before,<br> .clearfix:after {</p>
+<pre><code>content: &apos;&apos;;
+display: table
+</code></pre><p> }<br> .clearfix:after{</p>
+<pre><code>clear: both
+</code></pre><p> }</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/17/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -404,7 +545,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
